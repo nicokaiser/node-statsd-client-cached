@@ -1,7 +1,7 @@
 statsd-client-cached
 ====================
 
-This is a wrapper for [statsd-client](https://github.com/msiebuhr/node-statsd-client), which aggregates values and changes for a specific interval and sends them to statsd only after this interval.
+This is a wrapper for [statsd-client](https://github.com/msiebuhr/node-statsd-client), which aggregates values and changes for a specific interval and sends them to statsd only (at most) once every interval.
 
 Usage
 -----
