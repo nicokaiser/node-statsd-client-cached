@@ -1,6 +1,9 @@
 statsd-client-cached
 ====================
 
+[![NPM version](https://badge.fury.io/js/statsd-client-cached.svg)](https://www.npmjs.com/package/statsd-client-cached)
+[![Dependencies](https://img.shields.io/david/nicokaiser/node-statsd-client-cached.svg)](https://david-dm.org/nicokaiser/node-statsd-client-cached)
+
 This is a wrapper for [statsd-client](https://github.com/msiebuhr/node-statsd-client), which aggregates values and changes for a specific interval and sends them to statsd only (at most) once every interval.
 
 Usage
