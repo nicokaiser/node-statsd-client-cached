@@ -4,11 +4,14 @@
   "description": "A caching version of statsd-client",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard"
   },
   "author": "Nico Kaiser <nico@kaiser.me>",
   "license": "MIT",
   "dependencies": {
     "statsd-client": "^0.2.1"
+  },
+  "devDependencies": {
+    "standard": "^9.0.1"
   }
 }

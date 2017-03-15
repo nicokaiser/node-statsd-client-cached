@@ -12,13 +12,13 @@ Usage
 It is initialized and used exaclty like `statsd-client`, with an additional `flushInterval` option (default: 10).
 
 ```javascript
-var SDC = require('statsd-client-cached');
+const SDC = require('statsd-client-cached')
 
-var sdc = new SDC({
-    host: 'statsd.example.com',
-    port: 8124,
-    flushInterval: 10000 // default: 10 seconds
-});
+const sdc = new SDC({
+  host: 'statsd.example.com',
+  port: 8124,
+  flushInterval: 10000 // default: 10 seconds
+})
 ```
 
 Notes
