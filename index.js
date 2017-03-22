@@ -11,6 +11,7 @@ class Client extends StatsDClient {
     this._deltas = {}
     this._gauges = {}
     this._sets = {}
+    this._timings = []
     this._timeout = null
   }
 
@@ -20,6 +21,11 @@ class Client extends StatsDClient {
     } else {
       this._deltas[name] += delta
     }
+    this._startTimeout()
+  }
+
+  timing (name, time) {
+    this._timings.push([name, time])
     this._startTimeout()
   }
 
@@ -43,35 +49,37 @@ class Client extends StatsDClient {
   }
 
   _startTimeout () {
-    var self = this
     if (!this._timeout) {
-      this._timeout = setTimeout(function () {
-        self._flush()
-      }, this._flushInterval)
+      this._timeout = setTimeout(() => this._flush(), this._flushInterval)
     }
   }
 
-  _flushfunction () {
+  _flush () {
     var name
 
     if (this._timeout) clearTimeout(this._timeout)
     this._timeout = null
 
     for (name in this._deltas) {
-      Client.super_.prototype.counter.apply(this, [name, this._deltas[name]])
+      StatsDClient.prototype.counter.apply(this, [name, this._deltas[name]])
     }
 
     for (name in this._sets) {
-      Client.super_.prototype.set.apply(this, [name, this._sets[name]])
+      StatsDClient.prototype.set.apply(this, [name, this._sets[name]])
     }
 
     for (name in this._gauges) {
-      Client.super_.prototype.gauge.apply(this, [name, this._gauges[name]])
+      StatsDClient.prototype.gauge.apply(this, [name, this._gauges[name]])
     }
+
+    this._timings.forEach((timing) => {
+      StatsDClient.prototype.timing.apply(this, [timing[0], timing[1]])
+    })
 
     this._deltas = {}
     this._sets = {}
     this._gauges = {}
+    this._timings = []
   }
 }
 
