@@ -9,9 +9,9 @@
   "author": "Nico Kaiser <nico@kaiser.me>",
   "license": "MIT",
   "dependencies": {
-    "statsd-client": "^0.2.1"
+    "statsd-client": "^0.4.2"
   },
   "devDependencies": {
-    "standard": "^9.0.1"
+    "standard": "^12.0.1"
   }
 }
