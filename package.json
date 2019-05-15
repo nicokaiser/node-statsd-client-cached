@@ -6,8 +6,13 @@
   "scripts": {
     "test": "standard"
   },
-  "author": "Nico Kaiser <nico@kaiser.me>",
+  "author": {
+    "name": "Nico Kaiser",
+    "email": "nico@kaiser.me"
+  },
+  "homepage": "https://github.com/nicokaiser/node-statsd-client-cached",
   "license": "MIT",
+  "repository": "nicokaiser/node-statsd-client-cached",
   "dependencies": {
     "statsd-client": "^0.4.2"
   },
