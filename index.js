@@ -25,7 +25,8 @@ class Client extends StatsDClient {
   }
 
   timing (name, time) {
-    this._timings.push([name, time])
+    const t = time instanceof Date ? new Date() - time : time
+    this._timings.push([name, t])
     this._startTimeout()
   }
 
