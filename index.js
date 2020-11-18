@@ -56,7 +56,7 @@ class Client extends StatsDClient {
   }
 
   _flush () {
-    var name
+    let name
 
     if (this._timeout) clearTimeout(this._timeout)
     this._timeout = null
